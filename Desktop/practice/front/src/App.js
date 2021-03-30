@@ -25,6 +25,7 @@ class App extends Component {
   service = new AuthService()
 
   fetchUser(){
+    console.log('user In Fetch', this.state.loggedInUser)
     if( this.state.loggedInUser === null ){
       this.service.loggedin()
       .then(response =>{
@@ -51,7 +52,7 @@ class App extends Component {
     if(this.state.loggedInUser){
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <Navbar {...props} userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <Switch>
             <ProtectedRoute user={this.state.loggedInUser} path='/userHome' component={UserHome} />
             <ProtectedRoute user={this.state.loggedInUser} path='/projects/:id' component={ProjectDetails} />

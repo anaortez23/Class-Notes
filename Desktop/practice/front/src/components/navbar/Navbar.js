@@ -22,6 +22,7 @@ logoutUser = () =>{
 }
 
 render(){
+    console.log('user In navbar', this.state.loggedInUser)
     if(this.state.loggedInUser){
     return(
         <nav className="nav-style">
@@ -32,7 +33,7 @@ render(){
 
             <li>
             <Link to='/'>
-                <button onClick={() => this.logoutUser()}>Logout</button>
+                <button onClick={this.logoutUser}>Logout</button>
             </Link>
             </li>
         </ul>
