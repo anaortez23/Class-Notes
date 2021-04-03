@@ -1,19 +1,22 @@
 import React from 'react';
+// import AuthService from './auth-service'
 import { Route, Redirect } from 'react-router-dom';
 
 const protectedRoute  = ({component: Component, user, ...rest}) => {
-// console.log({component: Component, user, ...rest})
+console.log('protected route', {user})
+
+
     return (
     <Route
         {...rest}
-        render={ props  => {
-            if(user){
-            return <Component {...props} loggedInUser={user}/>
-            } else {
-            return <Redirect to={{pathname: '/', state: {from: props.location}}} />
-            }
+        render={ props  => 
+            user? (
+                <Component {...props} {...rest} user={user}/>
+            ) : (
+                <Redirect to={{pathname: '/', state: { from: props.location } }} />
+            )
         }
-        }
+        
     />
     )
 }

@@ -29,22 +29,23 @@ render(){
     <div>
         <div >
             <div className="album-list">
-            
+    <div className="album py-5 bg-light">
+    <div className="container" >
+    <div className="row">
         { this.state.listOfProjects.map( project => {
+            // console.log(project.owner, this.props.user )
+        if(this.props.user._id === project.owner){
             // console.log(project.urlFormat)
             return (
-                <div className="album py-5 bg-light"  key={project._id}>
-    <div className="container">
-
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div className="col">
-        <div className="card shadow-sm">
+    
+        <div className="col-md-4" key={project._id}>
+        <div className="card mb-4 box-shadow">
             {
                     project.mediaType === 'video'?
                     <>
                     <ReactPlayer 
                         className="bd-placeholder-img card-img-top"
-                        width="100%" height="225"
+                        width="100%" height="225" display="block"
                         url={project.urlFormat}
                         // playing
                         controls
@@ -57,6 +58,7 @@ render(){
                         // className="bd-placeholder-img card-img-top"
                         // width="100%" height="225"
                         src={project.urlFormat}
+                        width="100%" height="225" display="block"
                         // playing
                         controls />
                     
@@ -86,56 +88,22 @@ render(){
             </div>
         </div>
         </div>
-        </div>
-        </div>
-        </div>
-            // <div key={project._id}>
-            //     {
-            //         project.mediaType === 'video'?
-                    
-            //         <ReactPlayer 
-            //             classNameName="media-api-data-card-item"
-            //             url={project.urlFormat}
-            //             // playing
-            //             controls
-            //             volume={1} />
-                    
-            //         : project.mediaType === 'audio'?
-            //         <ReactAudioPlayer 
-            //             classNameName="media-api-data-card-item"
-            //             src={project.urlFormat}
-            //             // playing
-            //             controls />
-                    
-            //         : project.mediaType === 'image'
-            //         ? 
-                    
-            //             <img
-            //                 classNameName="media-api-data-card-item"
-            //                 src={project.urlFormat} 
-            //                 alt={project.title} ></img>
-                    
-            //         : <p>bob</p>
-            //     }
-            //     <Link to={`/projects/${project._id}`}>
-            //     <h3>{project.title}</h3>
-            //     </Link>
-            //     {/*  added so the tasks can be displayed:   */}
-            //     {/* <ul>
-            //     { project.tasks.map((task, index) => {
-            //         return <li key={index}>{task.title}</li>
-            //     }) }
-            //     </ul>   */}
-            //     {/* <p style={{maxWidth: '400px'}} >{project.description} </p> */}
-            // </div>
-            )})
+        
+            
+            )}})
+        
+
         }
+        </div>
+        </div>
+        </div>
         </div>
         </div>
         
             {/* <AddProject getData={() => this.getAllProjects()}/>  */}
         </div>
     )
+
 }
 }
 

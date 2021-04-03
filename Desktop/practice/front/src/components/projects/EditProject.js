@@ -41,10 +41,11 @@ render(){
     return (
     <div>
         <hr />
-        <h3>Edit form</h3>
+        <h3>Edit Media</h3>
         <form onSubmit={this.handleFormSubmit}>
         <label>Title:</label>
         <input type="text" name="title" value={this.state.title} onChange={e => this.handleChangeTitle(e)}/>
+        <br></br>
         <label>Description:</label>
         <textarea name="description" value={this.state.description} onChange={e => this.handleChangeDesc(e)} />
         

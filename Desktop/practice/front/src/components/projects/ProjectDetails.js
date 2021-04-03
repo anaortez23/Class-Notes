@@ -6,6 +6,7 @@ import AddTask from '../tasks/AddTask';
 import EditTask from '../tasks/EditTask'
 import ReactPlayer from 'react-player';
 import ReactAudioPlayer from 'react-audio-player';
+import backArrow from '../../back-removebg-preview.png'
 
 
 class ProjectDetails extends Component {
@@ -98,50 +99,67 @@ ownershipCheck = (project) => {
         <div >
         {this.ownershipCheck(this.state)}
         </div>
-        <Link to={'/projects'}>Back to projects</Link>
+        <Link to={'/projects'}><img className="back-arrow" src={backArrow}></img></Link>
         </div>
     )
     } 
 }
 render(){
     return(
-    <div>
-        <Link to={'/projects'}>Back to projects</Link>
-        <button onClick={(e) => this.renderEditForm(e)} >Edit</button>
-        <button onClick={() => this.deleteProject()}>Delete</button> {/* <== !!! */}
-        <h1>{this.state.title}</h1>
-        {/* <p>{this.state.description}</p> */}
+    <div className="api-card-div-outer">
+        <Link  to={'/projects'}><img className="back-arrow" src={backArrow}></img></Link>
+
+        <div className="api-card-div">
+        {/* <p>{this.state.description}</p> */
+        console.log(this.state.theProject)}
         {
+
                     this.state.mediaType === 'video'?
-                    <>
-                    <ReactPlayer 
+                    <div className="api-card-left" >
+                    <ReactPlayer border-radius="1 0 0 1"
+                    width="87%"
+                    margin-left="-6vw"
+                    height="100%"
+                    padding-bottom="6%"
                         className="media-api-data-card-item"
                         url={this.state.urlFormat}
                         // playing
                         controls
                         volume={1} />
-                    <p>{this.state.description}</p>
-                    </>
+                    {/* <p>{this.state.description}</p> */}
+                    </div>
                     : this.state.mediaType === 'audio'?
-                    <>
+                    <div className="api-card-left" >
                     <ReactAudioPlayer 
                         // className="media-api-data-card-item"
                         src={this.state.urlFormat}
                         // playing
                         controls />
                     {/* <p>{this.state.description}</p> */}
-                    </>
+                    </div>
                     : this.state.mediaType === 'image'
                     ? 
-                    <>
+                    <div className="api-card-left" >
                         <img
                             className="media-api-data-card-item"
                             src={this.state.urlFormat} 
                             alt={this.state.title} ></img>
-                        <p>{this.state.description}</p>
-                    </>
-                    : <p>bob</p>
+                        {/* <p>{this.state.description}</p> */}
+                    </div>
+                    : <p>Not Supported</p>
                 }
+    <div className="api-card-right">
+        <div className="edit-delete-project-details">
+        <button onClick={(e) => this.renderEditForm(e)} >Edit</button>
+        <button onClick={() => this.deleteProject()}>Delete</button> {/* <== !!! */}
+        </div>
+        <h2>{this.state.title}</h2>
+        <h7>{this.state.description?.length > 300
+            ? this.state.description.substring(0, 299) + "..."
+            : <p>{this.state.description}</p> }
+        </h7>
+        {/* {this.state.description.length > 300? this.state.description.substring(0, 299) + "..."
+        :<p>{this.state.description}</p>} */}
         {/* show the task heading only if there are tasks */}
         { this.state.tasks && this.state.tasks.length > 0 && <h3>Notes </h3> }
         {/* map through the array of tasks and... */}
@@ -169,6 +187,8 @@ render(){
         <br/>
         <div>{this.renderAddTaskForm()} </div>
         <br/><br/><br/><br/><br/>
+    </div>
+    </div>
     </div>
     )
 }

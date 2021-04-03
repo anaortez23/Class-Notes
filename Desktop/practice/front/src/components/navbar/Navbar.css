@@ -1,8 +1,18 @@
-.nav-style{
-    background-color: aliceblue;
-    
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
 }
+
 .nav-style ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5vw;
+    margin: 0;
+}
+.nav-style-logged ul{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -29,7 +39,8 @@
     color: white;
     font-weight: bold;
 }
-.nav-style li img{
-    margin-left: -163vw;
+/* .nav-style li img{
+    margin-left: -95vw;
     max-width: 11vw;
-}
+} */
+
