@@ -1,0 +1,46 @@
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}
+
+.nav-style ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5vw;
+    margin: 0;
+}
+.nav-style-logged ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5vw;
+    margin: 0;
+}
+.nav-style li button {
+    padding: 6px;
+    font-size: 1.2vw;
+    text-decoration: none;
+    margin-right: 2vw;
+    border-radius: 10px;
+    border-color: rgb(4, 13, 41);
+}
+.nav-style li button:hover{
+    background-color: navy;
+}
+.login-button{
+    background-color: rgb(4, 13, 41);
+}
+.login-button a{
+    color: white;
+    font-weight: bold;
+}
+/* .nav-style li img{
+    margin-left: -95vw;
+    max-width: 11vw;
+} */
+
