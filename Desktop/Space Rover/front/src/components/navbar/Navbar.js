@@ -5,7 +5,7 @@ import logo from '../../spaceRoverLogo.png';
 // import SearchResults from '../searchResults/SearchResults';
 // import axios from 'axios';
 import { Form, FormControl, Button } from "react-bootstrap";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'; 
 
 
 class Navbar extends Component {
